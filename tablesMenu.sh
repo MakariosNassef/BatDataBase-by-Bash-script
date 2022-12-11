@@ -2,17 +2,18 @@
 
 export PS3=$'\n\e[45mTables Menu>\e[0m '
 echo ""
-select choice in 'Create Table' 'Insert Table' 'Select Table' 'Update to Table' 'Drop Table' 'List Tables' 'Delete From Table' 'Back to Master' 'Exit'; do
+
+select choice in 'Create Table' 'Insert into Table' 'Select From Table' 'Update to Table' 'Drop Table' 'List Tables' 'Delete From Table' 'Back to Master' 'Exit'; do
       case $choice in
       'Create Table')
             . createTb.sh
             break
             ;;
-      'Insert Table')
+      'Insert into Table')
             . insertTb.sh
             break
             ;;
-      'Select Table')
+      'Select From Table')
             . selectTb.sh
             break
             ;;

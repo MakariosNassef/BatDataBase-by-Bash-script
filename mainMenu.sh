@@ -2,17 +2,17 @@
 
 export PS3=$'\n\e[42mDatabase Menu>\e[0m '
 
-select op in "Create Database" "List Database" "Connect to Database" "Drop Database" "Exit"; do
+select op in "Create Database" "List Databases" "Connect to Databases" "Drop Database" "Exit"; do
     case $op in
     "Create Database")
         . createDb.sh
         break
         ;;
-    "List Database")
+    "List Databases")
         . listDb.sh
         break
         ;;
-    "Connect to Database")
+    "Connect to Databases")
         . connectDb.sh
         break
         ;;
