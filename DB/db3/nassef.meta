@@ -1,0 +1,5 @@
+id:int:PK
+name:string
+pho:int
+add:string
+num:int
