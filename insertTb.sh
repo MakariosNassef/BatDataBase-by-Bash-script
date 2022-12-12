@@ -1,11 +1,10 @@
 #!/bin/bash
 
-echo -e "\e[44mPlease enter the table name :\e[0m"
-read dbtable
-
 if [[ $(ls -l | wc -l) = 1 ]]; then
 	echo -e "\e[41mThere are no Tables here please Create your Tables.\e[0m"
 else
+	echo -e "\e[44mPlease enter the table name :\e[0m"
+	read dbtable
 	if [[ -f "$dbtable.data" ]]; then
 		file=$dbtable.meta
 		num_col=$(cat "$file" | wc -l)
@@ -21,7 +20,7 @@ else
 						if [[ "$existpk" == '' ]]; then
 							. checkInt.sh
 						else
-							echo "This id is already exist"
+							echo -e "\e[41mThis id is already exist.\e[0m"
 						fi
 					else
 						. checkInt.sh
@@ -35,7 +34,7 @@ else
 						if [[ "$existpk" == '' ]]; then
 							. checkString.sh
 						else
-							echo "This id is already exist"
+							echo -e "\e[41mThis id is already exist.\e[0m"
 						fi
 					else
 						. checkString.sh

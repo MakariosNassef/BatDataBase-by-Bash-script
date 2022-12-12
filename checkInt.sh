@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! [[ $val =~ ^[0-9]+$ ]]; then
-	echo "error: Not a number" >&2
+	echo -e "\e[41mNot a number\e[0m" >&2
 else
 	if [[ $((i + 1)) -eq $num_col ]]; then
 		echo -n "$val" >>$dbtable.data

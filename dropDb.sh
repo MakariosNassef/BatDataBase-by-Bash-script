@@ -15,6 +15,7 @@ else
             rm -r $dbname
             echo -e "\e[44mDatabase Deleted.\e[0m"
             flag=0
+            notify-send -t 5000 -i face-sad "Unfortunately" "Database <b>$dbname</b> deleted."
             break
         else
             flag=$flag+1

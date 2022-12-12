@@ -21,6 +21,7 @@ else
                     rm $tbname.data
                     touch $tbname.data
                     echo -e "\e[44mAll Data Deleted\e[0m"
+                    notify-send -t 5000 -i face-sad "Unfortunately" "All <b>$tbname</b> data deleted."
                     break
                     ;;
                 "$fcolumn")
@@ -30,6 +31,7 @@ else
                     if ! [[ "$exist" == '' ]]; then
                         sed -i "/^$rec/d" $PWD/$tbname.data
                         echo -e "\e[44mRecord Deleted\e[0m"
+                        notify-send -t 5000 -i face-sad "Unfortunately" "Record data deleted."
                     else
                         echo -e "\e[41mRecord not found\e[0m"
                     fi

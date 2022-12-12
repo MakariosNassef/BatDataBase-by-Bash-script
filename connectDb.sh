@@ -12,6 +12,7 @@ else
         if [[ $i = "$dbname/" ]]; then
             cd $dbname
             echo -e "\e[44mDatabase $dbname Opend, the path: $PWD \e[0m"
+            notify-send -t 5000 -i face-smile "Welcome to $dbname" "Database <b>$dbname</b> Opend"
             flag=0
             . tablesMenu.sh
             break

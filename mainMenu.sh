@@ -22,6 +22,7 @@ select op in "Create Database" "List Databases" "Connect to Databases" "Drop Dat
         ;;
     "Exit")
         echo -e "\e[44mBye\e[0m"
+        zenity --info --width=200 --title="BatServer" --text=$'Good Bye, We hope that we have helped you to get what you want, See you next time.\nBy\nMakarios Nassef\nNathan Eid' --no-wrap
         break
         ;;
     *)

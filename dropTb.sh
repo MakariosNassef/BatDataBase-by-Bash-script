@@ -10,6 +10,7 @@ else
         rm "$tbname.data"
         rm "$tbname.meta"
         echo -e "\e[44mTable Deleted\e[0m"
+        notify-send -t 5000 -i face-sad "Unfortunately" "Table <b>$tbname</b> deleted."
     else
         echo -e "\e[41mTable Not Exist\e[0m"
     fi

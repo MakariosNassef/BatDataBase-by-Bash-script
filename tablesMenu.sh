@@ -40,6 +40,7 @@ select choice in 'Create Table' 'Insert into Table' 'Select From Table' 'Update 
             ;;
       'Exit')
             echo -e "\e[44mBye\e[0m"
+            zenity --info --width=200 --height=100 --title="BatServer" --text=$'Good Bye, We hope that we have helped you to get what you want, See you next time.\nBy\nMakarios Nassef\nNathan Eid' --no-wrap
             break
             ;;
       *)

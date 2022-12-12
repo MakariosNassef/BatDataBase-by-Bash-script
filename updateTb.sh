@@ -7,14 +7,14 @@ PK() {
         if [[ "$existpk" == '' ]]; then
             sed -i -e "s/$oldval/$newval/g" $PWD/$tbname.data
             echo -e "\e[44mUpdated Successfuly\e[0m"
-            out=false
+            notify-send -t 5000 -i face-smile "Congratulation" "Data Updated Successfuly."
         else
-            echo "This id is already exist"
+			echo -e "\e[41mThis id is already exist.\e[0m"
         fi
     else
         sed -i -e "s/$oldval/$newval/g" $PWD/$tbname.data
         echo -e "\e[44mUpdated Successfuly\e[0m"
-        out=false
+        notify-send -t 5000 -i face-smile "Congratulation" "Data Updated Successfuly."
     fi
 }
 
@@ -45,36 +45,27 @@ else
                 oldval=$(sed -n "/^$rec/p" $PWD/$tbname.data | awk -F: '{ print $'$changex'}')
                 read -p "Enter New value :" newval
 
-                #out=true
-                #while $out;
-                #do
                 if [[ $(awk -F: '{if(NR == '$changex'){print $2}}' "$PWD/$tbname.meta") == "int" ]]; then
                     if ! [[ $newval =~ ^[0-9]+$ ]]; then
-                        echo "error: Not a number" >&2
-                        #out=false
+	                    echo -e "\e[41mNot a number\e[0m" >&2
                     else
                         PK
                     fi
                 else
                     if [[ $newval = "" ]]; then
                         echo -e "\e[41minvalid entry, please enter a correct val\e[0m"
-                        # Please enter a valid name to proceed
                     elif [[ $newval =~ [/.:\|\-] ]]; then
                         echo -e "\e[41mYou can't enter these characters => . / : - | \e[0m"
-                        # valid entry
-
                     elif [[ $newval =~ ^[a-zA-Z] ]]; then
                         PK
                     else
                         echo -e "\e[41mfield name can't start with numbers or special characters\e[0m"
                     fi
-
                 fi
-
+                
             else
                 echo -e "\e[41mRecord not found\e[0m"
             fi
-
         else
             echo -e "\e[41mTable is empty.\e[0m"
         fi

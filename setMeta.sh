@@ -13,6 +13,7 @@ for ((i = 0; i < num_col; i++)); do
 			if [[ $(. checkValidName.sh "$field_name") = "True" ]]; then
 				echo -n "$field_name" >>$dbtable.meta
 				echo -n ":" >>$dbtable.meta
+				
 				echo -e "\e[44mEnter filed data type.\e[0m"
 				export PS3=$'\n\e[42mData Type>\e[0m '
 				select choice in 'int' 'string'; do
@@ -26,10 +27,11 @@ for ((i = 0; i < num_col; i++)); do
 						break
 						;;
 					*)
-						echo "please enter a valid choice"
+						eecho -e "\e[44mplease enter a valid choice.\e[0m"
 						;;
 					esac
 				done
+				
 				echo -e "\e[44mDo you want it a primary key.\e[0m"
 				export PS3=$'\n\e[42mPK>\e[0m '
 				select choice in 'Yes' 'No'; do
@@ -39,16 +41,16 @@ for ((i = 0; i < num_col; i++)); do
 						break
 						;;
 					'No')
-						#echo "" >> $dbtable.meta;
 						break
 						;;
 					*)
-						echo "please enter a valid choice"
+						eecho -e "\e[44mplease enter a valid choice.\e[0m"
 						;;
 					esac
 				done
 				echo "" >>$dbtable.meta
 				out=false
+			
 			else
 				echo -e "\e[41mRejected Field Name, Please modify it.\e[0m"
 			fi

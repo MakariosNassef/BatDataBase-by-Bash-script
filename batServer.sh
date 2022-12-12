@@ -21,6 +21,12 @@ echo -e "\033[1;91m
              *                            *
             \e[0m"
 
+NAME=$(zenity --entry --width=300 --height=100 --title="BatServer" --text "Enter You Name, Please")
+if [ -n "$NAME" ]
+then
+    zenity --info --width=300 --height=100 --title="BatServer" --text="Hello $NAME, Welcome To BatServer DBMS" --no-wrap
+fi
+
 if [[ $(ls | grep "DB") != "" ]]; then
     cd $PWD/DB
 else
